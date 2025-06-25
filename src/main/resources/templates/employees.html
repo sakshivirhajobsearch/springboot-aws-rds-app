@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 50px auto;
+        }
+        th, td {
+            border: 1px solid #222;
+            padding: 8px 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Employee Table from AWS RDS</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+        </tr>
+        <tr th:each="emp : ${employees}">
+            <td th:text="${emp.id}">1</td>
+            <td th:text="${emp.name}">John Doe</td>
+            <td th:text="${emp.department}">IT</td>
+            <td th:text="${emp.salary}">60000</td>
+        </tr>
+    </table>
+</body>
+</html>
